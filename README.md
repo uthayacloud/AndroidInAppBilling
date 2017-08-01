@@ -20,12 +20,14 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        compile 'com.github.uthayacloud:AndroidInAppBilling:0.1.1'
+	        compile 'com.github.uthayacloud:AndroidInAppBilling:0.1.2'
 	}
 That's it! The first time you request a project JitPack checks out the code, builds it and serves the build artifacts.
 
 If the project doesn't have any GitHub Releases you can use the short commit hash or 'anyBranch-SNAPSHOT' as the version.
+
 Step 3. Add this line when you call payment 
+
 * pass your SKU_ID
 * Licensing & in-app billing
 Licensing allows you to prevent unauthorized distribution of your app. It can also be used to verify in-app billing 	purchases. Learn more about licensing.
