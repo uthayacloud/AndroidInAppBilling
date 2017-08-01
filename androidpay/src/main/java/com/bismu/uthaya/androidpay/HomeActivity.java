@@ -21,16 +21,16 @@ public class HomeActivity {
     Activity activity;
 
 
-    public HomeActivity(Activity activity, String SKU_ID) {
+    public HomeActivity(Activity activity, String SKU_ID, String BASE_64_ENCODED) {
         this.activity = activity;
         mViewController = new InAPPBillingSetup(this, SKU_ID);
-        initBillingManager(activity, SKU_ID);
+        initBillingManager(activity, SKU_ID, BASE_64_ENCODED);
     }
 
-    public void initBillingManager(Activity activity, String SKU_ID) {
+    public void initBillingManager(Activity activity, String SKU_ID, String BASE_64_ENCODED) {
         // Create and initialize BillingManager which talks to BillingLibrary
         if (mBillingManager == null)
-            mBillingManager = new BillingManager(activity, mViewController.getUpdateListener());
+            mBillingManager = new BillingManager(activity, mViewController.getUpdateListener(), BASE_64_ENCODED);
         mBillingManager.initiatePurchaseFlow(SKU_ID, BillingClient.SkuType.INAPP);
 
     }

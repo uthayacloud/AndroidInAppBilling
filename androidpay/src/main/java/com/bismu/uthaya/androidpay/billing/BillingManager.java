@@ -77,7 +77,7 @@ public class BillingManager implements PurchasesUpdatedListener {
      * want to make it easy for an attacker to replace the public key with one
      * of their own and then fake messages from the server.
      */
-    private static final String BASE_64_ENCODED_PUBLIC_KEY = "CONSTRUCT_YOUR_KEY_AND_PLACE_IT_HERE";
+    private static String BASE_64_ENCODED_PUBLIC_KEY;
 
     /**
      * Listener to the updates that happen when purchases list was updated or consumption of the
@@ -96,8 +96,9 @@ public class BillingManager implements PurchasesUpdatedListener {
         void onServiceConnected(@BillingResponse int resultCode);
     }
 
-    public BillingManager(Activity activity, final BillingUpdatesListener updatesListener) {
+    public BillingManager(Activity activity, final BillingUpdatesListener updatesListener, String BASE_64_ENCODED) {
         Log.d(TAG, "Creating Billing client.");
+        BASE_64_ENCODED_PUBLIC_KEY = BASE_64_ENCODED;
         mActivity = activity;
         mBillingUpdatesListener = updatesListener;
         mBillingClient = new BillingClient.Builder(mActivity).setListener(this).build();
