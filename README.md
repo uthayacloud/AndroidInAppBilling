@@ -20,8 +20,8 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-		compile 'com.github.User:Repo:Tag'
-	}Copy
+	        compile 'com.github.uthayacloud:AndroidInAppBilling:0.1.1'
+	}
 That's it! The first time you request a project JitPack checks out the code, builds it and serves the build artifacts.
 
 If the project doesn't have any GitHub Releases you can use the short commit hash or 'anyBranch-SNAPSHOT' as the version.
@@ -30,7 +30,7 @@ Step 3. Add this line when you call payment
 
         new HomeActivity(this, "younity.bestofguide"); // SKU_ID
 
-Step 4. Add below line to your activity
+Step 4. Add below line to your activity get back response
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
