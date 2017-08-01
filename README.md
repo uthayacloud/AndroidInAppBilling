@@ -27,8 +27,13 @@ That's it! The first time you request a project JitPack checks out the code, bui
 If the project doesn't have any GitHub Releases you can use the short commit hash or 'anyBranch-SNAPSHOT' as the version.
 Step 3. Add this line when you call payment 
 * pass your SKU_ID
+* Licensing & in-app billing
+Licensing allows you to prevent unauthorized distribution of your app. It can also be used to verify in-app billing 	purchases. Learn more about licensing.
 
-        new HomeActivity(this, "younity.bestofguide"); // SKU_ID
+Your license key for your Application find Services and API Menu 
+Base64-encoded RSA public key to include in your binary.
+
+        new HomeActivity(this, "younity.bestofguide", Base64-encoded); // String = SKU_ID, String = Base64
 
 Step 4. Add below line to your activity get back response
 
