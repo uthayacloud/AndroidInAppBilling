@@ -8,7 +8,7 @@ import android.widget.Toast;
 public class HomeActivity {
     Activity activity;
 
-    HomeActivity (Activity activity) {
+    public HomeActivity (Activity activity) {
         this.activity = activity;
     }
 
