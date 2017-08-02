@@ -7,27 +7,22 @@ import com.android.billingclient.api.Purchase;
 import com.bismu.uthaya.androidpay.billing.BillingManager.BillingUpdatesListener;
 
 import java.util.List;
+import java.util.Objects;
 
-public class InAPPBillingSetup {
-    private static final String TAG = "MainViewController";
+class InAPPBillingSetup {
+    private static final String TAG = "InAPPBillingSetup";
 
     private final UpdateListener mUpdateListener;
     private HomeActivity mActivity;
     private String SKU_ID;
 
-    private boolean mBestOfGuide;
-
-    public InAPPBillingSetup(HomeActivity activity, String SKU_ID) {
+    InAPPBillingSetup(HomeActivity activity, String SKU_ID) {
         mUpdateListener = new UpdateListener();
         mActivity = activity;
         this.SKU_ID = SKU_ID;
     }
 
-    public boolean isBestOfGuideMonthlySubscribed() {
-        return mBestOfGuide;
-    }
-
-    public UpdateListener getUpdateListener() {
+    UpdateListener getUpdateListener() {
         return mUpdateListener;
     }
 
@@ -55,19 +50,21 @@ public class InAPPBillingSetup {
                 // Successfully consumed, so we apply the effects of the item in our
                 // game world's logic, which in our case means filling the gas tank a bit
                 Log.d(TAG, "Consumption successful. Provisioning.");
-            } else {
             }
 
             Log.d(TAG, "End consumption flow.");
         }
 
+        /**
+         * After google payment successfully get response
+         * @param purchaseList successful payment receive response
+         */
+
         @Override
         public void onPurchasesUpdated(List<Purchase> purchaseList) {
-            mBestOfGuide = false;
 
             for (Purchase purchase : purchaseList) {
-                if (purchase.getSku() == SKU_ID) {
-                    mBestOfGuide = true;
+                if (Objects.equals(purchase.getSku(), SKU_ID)) {
                     mActivity.onPurchasesUpdated(purchaseList);
                     break;
                 }
